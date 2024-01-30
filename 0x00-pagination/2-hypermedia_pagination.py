@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-
+"""
+get_hyper method that takes the same arguments (and defaults) as get_page and
+returns a dictionary containing the key-value pairs
+"""
 import csv
 import math
 from typing import List
