@@ -27,10 +27,10 @@ class LRUCache(BaseCaching):
 
             if key in self.order_used:
                 self.order_used.remove(key)
-            self.order_used.append(key)
+            self.order_used.insert(0, key)
 
             if len(self.order_used) > BaseCaching.MAX_ITEMS:
-                discarded_key = self.order_used.pop(0)
+                discarded_key = self.order_used.pop(-1)
                 del self.cache_data[discarded_key]
                 print('DISCARD: {}'.format(discarded_key))
 
