@@ -19,6 +19,9 @@ users = {
 
 
 class Config:
+    """
+    setup babel configurations
+    """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -32,6 +35,12 @@ babel = Babel(app)
 def get_user(user_id):
     """
     Returns a user dictionary based on user_id.
+
+    Args:
+        user_id (int): The ID of the user to retrieve.
+
+    Returns:
+        dict: The user dictionary if found, None otherwise.
     """
     return users.get(user_id)
 
@@ -46,7 +55,7 @@ def before_request():
         user = get_user(int(login_as))
         g.user = user if user else None
 
-
+# Function used for marking strings for translation
 @babel.localeselector
 def get_locale():
     """
