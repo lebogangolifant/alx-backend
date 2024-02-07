@@ -10,6 +10,9 @@ app = Flask(__name__)
 
 
 class Config:
+    """
+    Setup babel configuration
+    """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -19,7 +22,7 @@ app.config.from_object(Config)
 
 babel = Babel(app)
 
-
+# Function used for marking strings for translation
 @babel.localeselector
 def get_locale():
     """

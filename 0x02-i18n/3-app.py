@@ -12,12 +12,7 @@ app = Flask(__name__)
 
 class Config:
     """
-    Configuration class for Flask app.
-
-    Attributes:
-        LANGUAGES (list): List of supported languages.
-        BABEL_DEFAULT_LOCALE (str): Default locale for Babel extension.
-        BABEL_DEFAULT_TIMEZONE (str): Default timezone for Babel extension.
+    Setup babel configuration
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -28,7 +23,7 @@ app.config.from_object(Config)
 
 babel = Babel(app)
 
-
+# Function used for marking strings for translation
 @babel.localeselector
 def get_locale() -> str:
     """
